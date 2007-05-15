@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+{% load hr_tags %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Habitual Readers</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="description goes here" />
+<meta name="keywords" content="keywords,goes,here" />
+<link rel="stylesheet" href="/static/styles/andreas07.css" type="text/css" />
+<!--[if IE 6]>
+<link rel="stylesheet" href="/static/styles/fix.css" type="text/css" />
+<![endif]-->
+<link rel="stylesheet" href="/static/styles/custom.css" type="text/css" />
+</head>
+
+<body>
+<div id="sidebar">
+<h1>Habitual Readers</h1>
+<h2>What are you reading, toady?</h2>
+
+
+<div id="menu">
+    {% menuitem / Home %}
+    {% menuitem /tags/ Tags %}
+    {% menuitem /books/ Books %}
+    {% menuitem /readers/ Readers %}
+    {% menuitem /admin/ Admin %}
+</div>
+
+<h3>Version info:</h3>
+<p>v1.0 - December 2006</p>
+</div>
+
+<div id="content">
+<img src="/static/styles/img/red_logo.jpg" />
+
+{% block content %}
+Content here.
+{% endblock %}
+
+<div id="site_info">Copyright &copy; 2006 Ben Askins and Alan Green. Based on a design by <a href="http://andreasviklund.com">Andreas Viklund</a>.</div>
+</div>
+</body>
+</html>

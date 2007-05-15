@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>all readers</h3>
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.get_full_name }}. Would you like to <a href="/admin/auth/user/add/">add a new reader</a>?</p>
+{% endif %}
+
+<table>
+<thead>
+<tr>
+    {% if user.is_authenticated %}
+        <th>Actions</th>
+    {% endif %}
+    <th>Who</th>
+    <th># read</th>
+    <th>Last Book</th>
+    <th>Date</th>
+</tr>
+</thead>
+<tbody>
+
+
+{% for r in reader_list %}
+<tr>
+    {% if user.is_authenticated %}
+        <td>
+            <a href="/admin/auth/user/{{ r.user.id }}/">Edit</a>
+        </td>
+    {% endif %}
+    <td class="name_col"><a href="{{ r.get_absolute_url }}">{{ r.name }}</a></th>
+    <td class="num_col">{{ r.readingoccasion_set.count }}</td>
+    {% if r.most_recent %} 
+        <td>
+            <a href="{{ r.most_recent.book.get_absolute_url }}">{{ r.most_recent.book.title }}</a> 
+        </td>
+        <td class="date_col">
+            {{ r.most_recent.finished|date:"j M Y" }}
+        </td>
+    {% else %}
+        <td> - </td>
+        <td class="date_col"> - </td>
+    {% endif %}
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+{% include "frag_next_prev.html" %}
+{% endblock %}

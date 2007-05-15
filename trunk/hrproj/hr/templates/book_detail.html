@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>{{ book.title }}</h3>
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.get_full_name }}. Would you like to <a href="/admin/hr/book/{{ book.id }}/">change this book</a>?</p>
+{% endif %}
+
+{% if book.amazon_large_url %}
+    <div class="cover"><img src="{{ book.amazon_large_url }}" /></div>
+{% else %}
+    {% if book.amazon_small_url %}
+        <div class="cover"><img src="{{ book.amazon_small_url }}" /></div>
+    {% endif %}
+{% endif %}
+
+<p class="byline">{{ book.author }}. (ISBN: 
+    {% if book.amazon_buy_url %}
+        <a href="{{ book.amazon_buy_url }}">{{ book.isbn }}</a>
+    {% else %}
+        {{ book.isbn }}
+    {% endif %}
+)</p>
+
+<p><em>{{ book.summary }}</em> 
+    {% if book.amazon_buy_url %}
+        (<a href="{{ book.amazon_buy_url }}">Buy this book</a>)
+    {% endif %}
+</p>
+
+
+<h4>tags</h4>
+<p>
+        {% for t in book.tags.all %}
+        {% if not forloop.first %}/{% endif %}
+            <a href="{{ t.get_absolute_url }}">{{ t.name }}</a> 
+        {% endfor %}
+</p>
+
+
+<h4>readings</h4>
+
+<table>
+<thead>
+<tr>
+    <th>Last read by</th>
+    <th>When</th>
+    <th>Hours</th>
+    <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+{% for ro in readingoccasion_list %}
+<tr>
+    <td class="name_col"><a href="{{ ro.reader.get_absolute_url }}">{{ ro.reader.name }}</a></td>
+    <td class="date_col">{{ ro.finished|date:"j M Y" }}</td>
+    <td class="num_col">{{ ro.reading_time }}</td>
+    <td>{% firstof ro.notes "-" %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% include "frag_next_prev.html" %}
+{% endblock %}

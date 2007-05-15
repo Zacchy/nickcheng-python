@@ -1,0 +1,6 @@
+#@+leo-ver=4-thin
+#@+node:nickcheng.20070126145908.1:@thin abc.txt
+#@+all
+#@-all
+#@-node:nickcheng.20070126145908.1:@thin abc.txt
+#@-leo

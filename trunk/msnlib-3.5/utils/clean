@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -vrf *.pyc *.pyo *~
+rm -vrf build
+

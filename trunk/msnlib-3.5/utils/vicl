@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# yeah i work as root =)
+DIR=/root/devel/msn/msnlib/cur
+
+cd $DIR
+cd doc
+cp Changelog Changelog~
+
+DATE=`date '+%d %h %y %H.%M.%S'`
+echo "$DATE - Alberto <albertogli@telpin.com.ar>"  > Changelog
+echo " * " >> Changelog
+echo >> Changelog
+
+cat Changelog~ >> Changelog
+
+vi Changelog
+
+rm Changelog~

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>recent reads</h3>
+
+
+<table>
+<thead>
+<tr>
+    <th>Who</th>
+    <th>What</th>
+    <th>When</th>
+</tr>
+</thead>
+<tbody>
+    {% for read_occ in read_occs %}
+<tr>
+    <td class="name_col">
+        <a href="{{ read_occ.reader.get_absolute_url }}">{{ read_occ.reader.name }}</a>
+    </th>
+    <td><a href="{{ read_occ.book.get_absolute_url }}">{{ read_occ.book.title }}</a></td>
+    <td class="date_col">{{ read_occ.finished|date:"j M Y" }}</td>
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<h3>categories</h3>
+
+
+<p class="taglist">
+{% for tag in tags %}
+<a class="level_{{ tag.pop_level }}" href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+{% endfor %}
+</p>
+
+<h3>about us</h3>
+<p><strong>Habitual Readers</strong> meet at the Upper Gumtree community hall, 9:30am on the first and third Tuesday of each month. New members are always welcome.</p>
+
+<p>We read so much, we sometimes forget who has read what. We use this website to helps us remember.</p>
+{% endblock %}

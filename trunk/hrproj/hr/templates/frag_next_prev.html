@@ -1,0 +1,15 @@
+{% if is_paginated %}
+    {% if has_previous %}
+        <form method="GET" action="">
+        <input type="hidden" name="page" value="{{ previous }}" />
+        <button class="page_button on_left" type="submit" name="prev">&lt;&lt; Prev page</button>
+        </form>
+    {% endif %}
+    {% if has_next %}
+        <form method="GET" action="">
+        <input type="hidden" name="page" value="{{ next }}" />
+        <button class="page_button on_right" type="submit" name="next">Next page &gt;&gt;</button>
+        </form>
+    {% endif %}
+
+{% endif %}
