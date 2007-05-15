@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>all tags</h3>
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.get_full_name }}. Would you like to <a href="/admin/hr/tag/add/">add a new tag</a>?</p>
+{% endif %}
+
+<table>
+<thead>
+<tr>
+    {% if user.is_authenticated %}
+        <th>Actions</th>
+    {% endif %}
+    <th>Tag</th>
+    <th>Books</th>
+</tr>
+</thead>
+<tbody>
+
+{% for t in tag_list %}
+<tr>
+    {% if user.is_authenticated %}
+        <td>
+            <a href="/admin/hr/tag/{{ t.id }}/">Edit</a>
+        </td>
+    {% endif %}
+    <td class="tag_col"><a href="{{ t.get_absolute_url }}">{{ t.name }}</a></th>
+    <td>
+        {% if not t.book_set.count %}&nbsp;{% endif %}
+        {% for b in t.book_set.all %}
+        {% if not forloop.first %}/{% endif %}
+            <a href="{{ b.get_absolute_url }}">{{ b.title }}</a> 
+        {% endfor %}
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% include "frag_next_prev.html" %}
+{% endblock %}

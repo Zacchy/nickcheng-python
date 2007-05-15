@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load hr_tags %}
+
+{% block content %}
+<h3>all books</h3>
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.get_full_name }}. Would you like to <a href="/admin/hr/book/add/">add a new book</a>?</p>
+{% endif %}
+
+<table>
+<thead>
+<tr>
+    {% if user.is_authenticated %}
+        <th>Actions</th>
+    {% endif %}
+    <th>&nbsp;</th>
+    <th>Book</th>
+    <th>Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+{% for b in book_list %}
+<tr>
+    {% if user.is_authenticated %}
+        <td>
+            <a href="/admin/hr/book/{{ b.id }}/">Edit</a>
+        </td>
+    {% endif %}
+    <td class="thumb_col">
+        {% if b.amazon_small_url %}
+            <a href="{{ b.amazon_buy_url }}"><img src="{{ b.amazon_small_url }}"></a>
+        {% else %}
+            Image not available
+        {% endif %}
+    </td>
+    <td><a href="{{ b.get_absolute_url }}">{{ b.title }}</a></td>
+    <td>
+        {% if not b.tags.count %}&nbsp;{% endif %}
+        {% for t in b.tags.all %}
+        {% if not forloop.first %}/{% endif %}
+            <a href="{{ t.get_absolute_url }}">{{ t.name }}</a> 
+        {% endfor %}
+    </td>
+</tr>
+{% endfor %}
+</tr>
+</tbody>
+</table>
+
+{% include "frag_next_prev.html" %}
+{% endblock %}
+

@@ -1,0 +1,455 @@
+10 Mar 05 00.34.03 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix documentation for the add command.
+
+27 Jun 04 14.12.24 - Alberto <albertogli@telpin.com.ar>
+ * msntk: fixes from the console client.
+
+29 Mar 04 23.55.18 - Alberto <albertogli@telpin.com.ar>
+ * tag: 3.4 tag
+
+22 Mar 04 17.45.29 - Alberto <albertogli@telpin.com.ar>
+ * msn: change initial status after we got the full user list; this should fix
+	the problem that all the list appeared offline, but it needs testing
+
+21 Mar 04 21.43.39 - Alberto <albertogli@telpin.com.ar>
+ * msn: remove space after the first line which that messed up NetBSD. Thanks
+	to Cameron Kaiser.
+ * msn: allow Ctrl+U to clear the command line. Patch by Cameron Kaiser.
+
+01 Mar 04 04.33.38 - Alberto <albertogli@telpin.com.ar>
+ * msn: add 'ren' command to rename users
+
+20 Dec 03 22.29.01 - Alberto <albertogli@telpin.com.ar>
+ * msn: handle a crash when typing space and tab by doing proper param
+	checking in tab handling
+
+10 Dec 03 23.16.52 - Alberto <albertogli@telpin.com.ar>
+ * doc: update license to OSL v2.0
+
+13 Nov 03 11.47.09 - Alberto <albertogli@telpin.com.ar>
+ * msncb, msn: add more information to XFRError to see if we can get what is
+	causing it
+
+12 Nov 03 13.13.27 - Alberto <albertogli@telpin.com.ar>
+ * doc: update URL
+
+12 Nov 03 12.52.27 - Alberto <albertogli@telpin.com.ar>
+ * tag: 3.3 tag
+
+12 Nov 03 00.06.32 - Alberto <albertogli@telpin.com.ar>
+ * msn: handle socket exceptions more properly so we cleanup the console on
+	the exit path even when the md is down
+
+11 Nov 03 23.35.05 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: handle some server errors while logging in
+
+08 Nov 03 18.29.47 - Alberto <albertogli@telpin.com.ar>
+ * msn: handle \r input for mac keyboards
+
+03 Nov 03 20.19.07 - Alberto <albertogli@telpin.com.ar>
+ * msntk: add msntk, a tk-based client
+
+30 Oct 03 02.48.30 - Alberto <albertogli@telpin.com.ar>
+ * doc: various small updates
+
+29 Oct 03 22.46.13 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix a crash when passing an unknown nick to block/unblock
+ * msn: do proper nick checking in lignore
+
+28 Oct 03 23.13.56 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix a crash when the configuration file was passed as a parameter
+
+27 Oct 03 12.49.14 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: do proper connect() checking using getsockopt()
+ * msnlib: fix user.__repr__()
+
+18 Oct 03 10.12.12 - Alberto <albertogli@telpin.com.ar>
+ * msn: mark blocked users in listings
+ * msn: use string.join() for multi-user chat filenames
+ * msnlib: remove FIXME from message lenght check; the way it's done is safe
+ * msnlib: allow sendmsg to get a destination sbd directly
+
+30 Sep 03 15.06.19 - Alberto <albertogli@telpin.com.ar>
+ * doc: upgrade documentation to reflect the need for at least Python 2.2.2
+ * doc: minor change to TODO list
+
+29 Sep 03 09.17.33 - Alberto <albertogli@telpin.com.ar>
+ * tag: 3.2 tag
+
+28 Sep 03 11.39.59 - Alberto <albertogli@telpin.com.ar>
+ * msn: handle some Hotmail messages, now we display unread mail and new mail
+	notifications
+ * msnsetup: display profile name in the final message
+ * msn: implement multi-user chat logging, so now chats that involve multiple
+	users get logged properly to a different file
+ * msnlib: fix the login procedure to handle redirects properly, and clean up
+	and comment the code so we don't get lost in the parsing
+
+28 Sep 03 10.01.35 - Alberto <albertogli@telpin.com.ar>
+ * tag: 3.1 tag
+
+28 Sep 03 09.59.14 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: fix SSL error handling, now raise the error properly
+
+27 Sep 03 15.58.21 - Alberto <albertogli@telpin.com.ar>
+ * msn: ignore gaim's x-clientcaps messages
+ * msn: allow spaces in nick
+
+25 Sep 03 23.02.38 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix crashes when sending a null message
+ * msn: fix message content mangling when the first character matched the nick
+
+24 Sep 03 14.29.17 - Alberto <albertogli@telpin.com.ar>
+ * tag: 3.0
+ * doc: small updates
+
+22 Sep 03 23.55.26 - Alberto <albertogli@telpin.com.ar>
+ * msn: preserve whitespace in messages
+
+22 Sep 03 02.10.15 - Alberto <albertogli@telpin.com.ar>
+ * msn, msnlib: implement user blocking and unblocking
+ * msncb: fix MSNP8 SYN so it doesn't step over existing users
+ * msncb: use the same user object for both reverse and forward lists
+ * msncb: fix MSNP8 ADD and BPR so both work well with the new SYN
+
+22 Sep 03 00.14.15 - Alberto <albertogli@telpin.com.ar>
+ * msnlib, msncb: implement MSNP8
+
+25 Aug 03 23.14.08 - Alberto <albertogli@telpin.com.ar>
+ * tag: 2.1
+
+25 Aug 03 14.09.17 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: keep message queues when submitting sbds, to avoid loosing messages
+	when two XFRs happen at the 'same' time
+ * msn: priorize users with sbd for tab completion
+
+25 Aug 03 00.05.22 - Alberto <albertogli@telpin.com.ar>
+ * msn: use email instead of nick for tab completion when nick has spaces
+ * msn: implement tab completion for emails and nicks
+
+04 Aug 03 15.07.53 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix user info to avoid crashing when asking for info on users
+	which are not on our list
+ * msn: some indentation work
+ * msncb: close sbd when deleting a user
+
+08 Jun 03 19.11.18 - Alberto <albertogli@telpin.com.ar>
+ * tag: 2.0
+
+07 Jun 03 15.40.18 - Alberto <albertogli@telpin.com.ar>
+ * msn, msnlib, msncb: add group support
+
+05 Jun 03 17.16.21 - Alberto <albertogli@telpin.com.ar>
+ * doc: add an icons table
+
+05 Jun 03 00.22.48 - Alberto <albertogli@telpin.com.ar>
+ * msn: move the help to a separate string
+ * msn, msnlib, msncb: fix several weird corner cases with multi-user chats
+ 
+04 Jun 03 12.54.31 - Alberto <albertogli@telpin.com.ar>
+ * msncb: don't close the sbd on fln, so we can keep talking while invisible
+
+04 Jun 03 12.38.42 - Alberto <albertogli@telpin.com.ar>
+ * msn, msnlib: add invitation support for multi-user chats
+ * msncb: fix fln sbd handling
+
+04 Jun 03 11.00.04 - Alberto <albertogli@telpin.com.ar>
+ * msncb: add email to sbd.emails on joi and iro
+ * msncb: handle bye messages properly for multi-user sbds
+
+04 Jun 03 10.50.54 - Alberto <albertogli@telpin.com.ar>
+ * msncb, msn: fix flushing for sbd joins
+ * msncb, msn: implement cb_iro, for joining a multi-user sbd
+
+03 Jun 03 19.15.34 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix a bug when sending raw commands
+
+02 Jun 03 17.14.56 - Alberto <albertogli@telpin.com.ar>
+ * utils: add hmerge utility
+ * msn: add notification for sbd joins
+
+24 May 03 19.57.58 - Alberto <albertogli@telpin.com.ar>
+ * msncb: use debug() from msnlib
+ * msnlib: fix a bug in _recv() that didn't decoded the parameters properly
+ * msnlib, msncb: remember real nicks
+ * msn: show real nicks
+ * doc: update the TODO list
+
+21 May 03 19.01.27 - Alberto <albertogli@telpin.com.ar>
+ * msnlib, msncb: sbd connection handling cleanup, also fixed a weird bug
+	that raised EINPROGRESS after connect
+
+20 May 03 18.51.25 - Alberto <albertogli@telpin.com.ar>
+ * license: change the license from GPL to OSL
+
+11 May 03 15.42.38 - Alberto <albertogli@telpin.com.ar>
+ * msn: allow to send messages when either we or the receiver is offline if we
+	already have a sbd
+
+11 May 03 02.30.09 - Alberto <albertogli@telpin.com.ar>
+ * msn, msnlib, msncb: handle a protocol bug that allows line feeds (0x0C) in
+	user nicks, now we split fields explicitly only by a space (' ');
+	thanks to menetas@menetas.net for the report
+
+01 May 03 19.20.41 - Alberto <albertogli@telpin.com.ar>
+ * tag: 1.0 tag
+
+01 May 03 19.16.39 - Alberto <albertogli@telpin.com.ar>
+ * utils: add msnbot and msncd to the utilities
+ * doc: small documentation updates
+
+23 Apr 03 18.08.25 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix a very odd but important bug that could cause a protocol break by
+	miscalculating the lenght of an encoded message. Thanks to Ahilan
+	Sinnarajah for the report
+
+10 Apr 03 01.30.06 - Alberto <albertogli@telpin.com.ar>
+ * msn: implement color themes
+
+09 Apr 03 00.55.43 - Alberto <albertogli@telpin.com.ar>
+ * msn, msnsetup: implement profile support
+
+26 Mar 03 13.06.55 - Alberto <albertogli@telpin.com.ar>
+ * msn: when logging in, print the error code along with description
+
+18 Mar 03 15.45.37 - Alberto <albertogli@telpin.com.ar>
+ * msn: ask for password if not given in the configuration
+
+05 Mar 03 14.01.34 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: don't send an extra new line in sendmsg
+
+16 Feb 03 16.48.08 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix an exception in socket error handling
+
+20 Jan 03 14.31.43 - Alberto <albertogli@telpin.com.ar>
+ * tag: d4 tag (changelog entry not included in d4's tarballs)
+
+20 Jan 03 10.39.06 - Alberto <albertogli@telpin.com.ar>
+ * doc: update url and add mailing list information
+ * install: allow the user to specify an installation root directory
+ * install: install documentation
+ * setup: add url
+
+16 Jan 03 13.48.40 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: moved the encoding support from the client to the library
+ * msncb: close the sbd when the user goes offline
+ * msnlib: print the discarded messages when the user goes offline
+ 	it fixes an annoying race where a user goes offline and we have an
+	open sbd. Thanks to Peter Stuge for the report
+
+14 Jan 03 23.04.23 - Alberto <albertogli@telpin.com.ar>
+ * msn: implemented local ignore
+ * msn: now show internal variables in 'config'
+ * doc: added a 'commands' doc to explan the commands in more detail
+
+13 Jan 03 20.52.13 - Alberto <albertogli@telpin.com.ar>
+ * msn: encoding support, thanks to Peter Stuge for the suggestion and code.
+
+05 Jan 03 14.35.17 - Alberto <albertogli@telpin.com.ar>
+ * msn: fixes to time.strftime to make it work under 2.0
+ * doc: small documentation updates, including a new license note.
+ * msn: now use "/usr/bin/env python" to run msn
+ * msn: run python without the -Q switch
+
+26 Nov 02 11.36.00 - Alberto <albertogli@telpin.com.ar>
+ * tag: d3 tag
+
+24 Nov 02 12.50.11 - Alberto <albertogli@telpin.com.ar>
+ * msn: completed the FAQ, and added a reporting_bugs document
+ * msn: small changes to the INSTALL file
+ * msn: return nothing on log_msg as the return value is not important
+
+19 Nov 02 15.55.52 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix two big bugs with terminal handling; using nonblocking io makes
+	flushes and write fail under certain conditions (quite easily
+	triggered when running into a X terminal), so now they're replaced
+	with safe wrappers. Thanks to kusamochi@msn.com for the report, and
+	ameoba@opn for the huge help with the fix.
+ * msnlib: improved the close call, so now it won't raise an exception on a
+	sbd that has a non-established socket
+
+17 Nov 02 10.26.31 - Alberto <albertogli@telpin.com.ar>
+ * msn: enabling debug prints the terminal size and termios use
+
+12 Nov 02 00.42.58 - Alberto <albertogli@telpin.com.ar>
+ * msn: changed some command output to look less cryptic
+ * doc: add the FAQ
+
+08 Nov 02 00.03.43 - Alberto <albertogli@telpin.com.ar>
+ * msn: improved tab completion adding basic cycling
+ * msn: be able to disable logging using the already-existing 'log history'
+	configuration variable
+
+31 Oct 02 15.38.45 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: remove unused constant BSIZE
+ * msnlib: update VERSION
+
+30 Oct 02 18.35.28 - Alberto <albertogli@telpin.com.ar>
+ * msn: esthetic code changes
+ * tag: d2 tag
+
+29 Oct 02 08.50.14 - Alberto <albertogli@telpin.com.ar>
+ * msn: fix a small bug with the up and down keys
+ * msn: another small fix to ignore unknown escape sequences
+ * msn: change the order of tab keystrokes, now received goes first
+ * msn: don't print the prompt on exit
+
+28 Oct 02 18.45.12 - Alberto <albertogli@telpin.com.ar>
+ * msn: handle screen width appropiatedly
+ * tag: d1 tag
+
+24 Oct 02 13.22.34 - Alberto <albertogli@telpin.com.ar>
+ * msn: implemented command line history using escape codes, and added a
+	configuration option for its size
+ * msn: implemented basic tab completion
+
+23 Oct 02 21.43.08 - Alberto <albertogli@telpin.com.ar>
+ * msn: framework for advanced terminal handling
+ * doc: added a 'portability' doc with some info
+ * doc: several minor modifications
+ * msn: minor modifications to the help text
+
+23 Oct 02 09.33.51 - Alberto <albertogli@telpin.com.ar>
+ * msn: improve output on server disconnect
+ * msn: change the interpreter to /usr/bin/python, which is a more standard
+	location
+
+22 Oct 02 21.49.07 - Alberto <albertogli@telpin.com.ar>
+ * msn: use quit() instead of sys.exit() in several places
+ * msn: handle network errors when logging in
+ * tag: c2 tag
+ 
+10 Oct 02 18.43.59 - Alberto <albertogli@telpin.com.ar>
+ * msn: be able to use emails as nicks (can be useful for weird nicks)
+ * msn: fix a simple bug when tried to close a socket that didn't exist
+ * msn: unified the quit procedure and handle a keyboard interrupt properly
+ * msn: improved parameter handling in 'del' and 'privacy' commands, avoiding
+	crashes with incorrect user input
+ * msn: added 'ww' and 'ee' commands, which are like 'w' and 'e' but show also
+	email addresses
+ * msn: added some help
+ * msn: improved 'status' a bit
+ * msnlib: added a 'priv' field in the user class (as a dictionary) which can
+	be used by the client for private purposes
+ * msn: display 'typing' only once, and show the last typing time in the user
+	info
+ * msn: improved some code indentation, documentation and comments
+ * doc: minor changes in the INSTALL and README files
+ * msn: display time with status changes
+
+04 Oct 02 10.20.46 - Alberto <albertogli@telpin.com.ar>
+ * msn: now lstrip before parsing the command, so we don't crash on spaces
+
+28 Sep 02 13.26.23 - Alberto <albertogli@telpin.com.ar>
+ * msn: added a handler for a socket.socket exception when reading from
+	sockets, and now print the error
+
+24 Sep 02 16.56.12 - Alberto <albertogli@telpin.com.ar>
+ * msn: fixed some small error displays on unknown nick.
+ * msn: fixed a crash when not giving enough parameters to 'm'
+
+24 Sep 02 10.50.59 - Alberto <albertogli@telpin.com.ar>
+ * msnlib: fixed the only (known =) remaining bug, now connections are no
+	longer closed when we send a message
+ * tag: c1 tag
+
+23 Sep 02 13.30.08 - Alberto <albertogli@telpin.com.ar>
+ * msn: fixed a bug in the 'del' command which passed the nick instead of the
+	email to msnlib, so removals when nick != email (the common case)
+	failed
+ * msn: print emails when showing the the reverse user list
+ * msn: added command 'debug' to toggle debugging at runtime
+ * msnlib, msncb: print debugging output to stderr to make capturing easier
+
+22 Sep 02 13.54.29 - Alberto <albertogli@telpin.com.ar>
+ * msn: implement auto-away
+ * msn: fixed the configuration variable handling when set to an invalid value
+ * msn: added command 'config' to display the configuration
+ * msn: remove '\r' from the incoming messages
+
+18 Sep 02 21.18.17 - Alberto <albertogli@telpin.com.ar>
+ * msnlog.vim: added a vim syntax file to make log reading nicer
+ * scripts - utils: renamed 'scripts' to 'utils'
+
+17 Sep 02 15.48.50 - Alberto <albertogli@telpin.com.ar>
+ * doc: modified several doc files
+ * tag: b3 tag - released, thanks a lot to Henne Vogelsang for providing the hosting
+
+16 Sep 02 14.53.34 - Alberto <albertogli@telpin.com.ar>
+ * msnsetup: create a simple setup script for the configuration file
+ * install: create the installer scripts for the python modules and the client
+ * msn: fixed a multi-line message logging bug
+
+13 Sep 02 12.53.15 - Alberto <albertogli@telpin.com.ar>
+ * msn: implement history (and status change) logging
+ * msn: ignore Hotmail messages
+ * tag: b2 tag
+
+12 Sep 02 16.41.26 - Alberto <albertogli@telpin.com.ar>
+ * msncb.py: when flushing pending messages we used to keep the message in the
+	sbd msgqueue, fixed
+ * msn: show the pending messages on switchboard disconnect
+ * config: moved the configuration files default location to ~/.msn
+
+11 Sep 02 12.25.41 - Alberto <albertogli@telpin.com.ar>
+ * msnclient.py - msn: renamed msnclient.py to msn
+ * cb.py - msncb.py: renamed cb.py to msncb.py
+ * msn: s/cb/msncb/g to reflect the rename
+ * msn: added a configuration file, which led to a reorganization of some
+	variables and init procedures
+ * msn: some new-line changes to the print* functions
+ * msn: create print functions for outgoing and incoming messages, and now
+	print the time
+ * msn: display more information on some commands now that we have config
+ * msn: added 'close' command, which closes a sbd connection manually
+ 
+11 Sep 02 08.36.36 - Alberto <albertogli@telpin.com.ar>
+ * msnclient.py: create a nick2email and email2nick functions
+ * msnclient.py: added 'r' (reply) and 'a' (send to the last person you sent a
+	message to) commands
+ * msnclient.py: added 'info' command to display user info and simplified the
+	user list
+ * msnclient.py: modified several commands to accept and display nick instead
+	of email
+
+11 Sep 02 00.16.16 - Alberto <albertogli@telpin.com.ar>
+ * msnlib.py: make status_change return 0 if error
+ * msnclient.py: improve the status command
+ * msnclient.py: reverse list view (command 'wr')
+
+10 Sep 02 20.41.53 - Alberto <albertogli@telpin.com.ar>
+ * msnclient.py: change message command from 'msg' to 'm'
+ * msnclient.py: use nicks instead of email to send messages
+
+04 Sep 02 10.30.59 - Alberto <albertogli@telpin.com.ar>
+ * msnclient.py: create print_msg for message printing
+ * msnclient.py: add command: e, display only online contacts
+ * msnclient.py: add incoming message history through a size-limited list
+ * msnclient.py: defer outgoing message display until flushing
+
+02 Sep 02 21.48.28 - Alberto <albertogli@telpin.com.ar>
+ * tag: b1 tag; a lot of things got fixed, so far the library is solid (never
+	had a crash, but didn't get more test than myself)
+
+27 Aug 02 20.59.27 - Alberto <albertogli@telpin.com.ar>
+ * msnlib.py: added version number
+ * msnclient.py: make up an usable client, tons of changes
+ * cb.py: make the error table global
+
+25 Aug 02 13.17.59 - Alberto <albertogli@telpin.com.ar>
+ * msnlib.py: fixed a small bug that left the sb sockets nonblocking which
+	might bring some problems
+ * msnlib.py: fixed an important bug for sending messages that wrote two
+	newlines after a message, and apparently the server didn't like it
+
+29 Jul 02 00.44.30 - Alberto <albertogli@telpin.com.ar>
+ * tag: a1 tag; fixed several bugs regarding messaging and now it's probably
+	done (as in 'everything kinda works'). Obviously the interface still
+	sucks but i think i'm done with the callbacks. Also added a bit of
+	documentation, the basic README and cleaned up a little bit
+
+28 Jul 02 04.04.22 - Alberto <albertogli@telpin.com.ar>
+ * tag: Initial a0 tag. The basic working structure is there, it
+	hasn't been tested enough (ie. never received or sent a message) but
+	there is no need because i know it works =)
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load hr_tags %}
+
+{% block content %}
+
+<h3>{{ tag.name }} books</h3>
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.get_full_name }}. Would you like to <a href="/admin/hr/tag/{{ tag.id }}/">change this tag</a>?</p>
+{% endif %}
+
+<table>
+<thead>
+<tr>
+    <th>Book</th>
+    <th># reads</th>
+    <th>Last read by</th>
+    <th>When</th>
+</tr>
+</thead>
+
+<tbody>
+{% for b in book_list %}
+<tr>
+    <td><a href="{{ b.get_absolute_url }}">{{ b.title }}</a></td>
+    <td class="num_col">{{ b.readingoccasion_set.count }}</td>
+    {% if b.most_recent %}
+        <td class="name_col">
+            <a href="{{ b.most_recent.reader.get_absolute_url }}">{{ b.most_recent.reader.name }}</a>
+        </td>
+        <td class="date_col">
+            {{ b.most_recent.finished|date:"j M Y" }}
+        </td>
+    {% else %}
+        <td class="name_col"> - </td>
+        <td class="date_col"> - </td>
+    {% endif %}
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+{% include "frag_next_prev.html" %}
+{% endblock %}

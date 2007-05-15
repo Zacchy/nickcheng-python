@@ -1,0 +1,36 @@
+# Hand crafted tag names
+tag1:
+    id: 1
+    name: Adventure
+    books: [ 1, 2, 7 ]
+tag2:
+    id: 2
+    name: Comedy
+    books: [ 1 ]
+tag3:
+    id: 3
+    name: Science Fiction
+    books: [ 1 ]
+tag4:
+    id: 4
+    name: Romance
+    books: [ 4 ]
+tag5:
+    id: 5
+    name: Thriller
+    books: [ 7 ]
+tag6:
+    id: 6
+    name: Reference
+tag7:
+    id: 7
+    name: Literature
+    books: [ 2, 3, 4, 5 ]
+tag8:
+    id: 8
+    name: General Interest
+    books: [ 6, 9, 10, 11 ]
+tag9:
+    id: 9
+    name: Fantasy
+    books: [ 7 ]

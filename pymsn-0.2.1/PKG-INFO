@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: pymsn
+Version: 0.2.1
+Summary: Python msn client library
+Home-page: http://telepathy.freedesktop.org/wiki/Pymsn
+Author: Ali Sabil
+Author-email: ali.sabil@gmail.com
+License: GNU GPL
+Description: UNKNOWN
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Communications :: Telephony
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
