@@ -61,9 +61,25 @@ class URL2IMGList:
     
 if __name__ == '__main__':
     # -------
+    print "Let's begin!"
+    downloadList = []
     url = 'http://www.kawaiination.com/community/showthread.php?t=7173'
-    geter = URL2IMGList(url)
-    result = geter.GetIMG()
+    print 'URL: ' + url
+    
+    for i in range(1, 99):
+        print 'Page %s is Processing...' % str(i)
+        suburl = url + '&page=' + str(i)
+        geter = URL2IMGList(suburl)
+        result = geter.GetIMG()
+        
+        for link in result:
+            if link.startswith('http') and link not in downloadList:
+                downloadList.append(link)
+            
+    wfile = file('list.txt', 'w')
+    wfile.write('\r\n'.join(downloadList))
+    wfile.close()
+    
     print result
 #    headers = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
 #    req = urllib2.Request(url, headers = headers)
