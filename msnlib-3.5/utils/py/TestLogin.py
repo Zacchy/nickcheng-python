@@ -98,18 +98,18 @@ class sbd:
     """
 
     def __init__(self):
-        self.fd = None		# connection fd
-        self.state = None	# connection's state (see doc above)
-        self.emails = []	# emails we talk to through
-        self.msgqueue = []	# outgoing message queue
-        self.hash = None	# server-sent hash
-        self.session_id = None	# server-sent sid
-        self.endpoint = ()	# remote end (ip, port)
-        self.type = None	# either 'answer' or 'invite'
-        self.tid = 1		# the transaction id, it needs to be
-                    # unique for consistency
-        self.block = 1		# blocking state
-        self.orig_tid = None	# tid of the original XFR
+        self.fd = None          # connection fd
+        self.state = None       # connection's state (see doc above)
+        self.emails = []        # emails we talk to through
+        self.msgqueue = []      # outgoing message queue
+        self.hash = None        # server-sent hash
+        self.session_id = None  # server-sent sid
+        self.endpoint = ()      # remote end (ip, port)
+        self.type = None        # either 'answer' or 'invite'
+        self.tid = 1            # the transaction id, it needs to be
+                                # unique for consistency
+        self.block = 1          # blocking state
+        self.orig_tid = None    # tid of the original XFR
 
     def __repr__(self):
         return '<sbd: emails:%s state:%s fd:%d endpoint:%s>' % \
@@ -871,5 +871,7 @@ class msnd:
 
 if __name__ == '__main__':
     m = msnd()
-    m.email = 'chengnick@hotmail.com'    m.pwd = '1738517385'    m.login()
+    m.email = 'chengnick@hotmail.com'
+    m.pwd = '1738517385'
+    m.login()
     
