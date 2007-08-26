@@ -1,0 +1,23 @@
+<!-- Created: 26-08-2007 by nickcheng -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional/EN">
+<html>
+    <head>
+        <title>Ex4_1</title>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+        <meta name="generator" content="PyScripter">
+    </head>
+    <body>
+        <table>
+            {% for i in musicians %}
+            <tr>
+                <td {% if i.isBold %}style = "font-weight: bold;"{% endif %}>{{ i.name }}{% if i.isStar %}*{% endif %}</td>
+                <td>{{ i.genre }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if hs %}
+        <hr />
+        * Pretentious
+        {% endif %}
+    </body>
+</html>
