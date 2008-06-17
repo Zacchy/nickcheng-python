@@ -1,10 +1,14 @@
+#!/usr/bin/env python
+#coding=utf-8
+
 # Create your views here.
 from django.shortcuts import render_to_response
 import datetime
-import dbaccess
+
+import business
 
 def BlogIndex(request):
-    now = datetime.datetime.now()
+    articles = business.getArticles(1)
     return render_to_response('blog/default.html', locals())
 
 def test(request):
