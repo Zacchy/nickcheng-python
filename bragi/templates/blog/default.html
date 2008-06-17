@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}这是首页哦{% endblock %}
+
+{% block main %}
+<ul>
+    {% for item in articles %}
+        <li>
+            {{ item.Title }} ({{ item.CommentCount }})<br />
+            {{ item.Content }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
