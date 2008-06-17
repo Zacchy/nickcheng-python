@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Keywords" content="blog,python,django" />
+        <meta name="Description" content="Blog system powered by Python & Django" />
+        <!--  <link rel="stylesheet" type="text/css" href="stdtheme.css" /> -->
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div>
+            <h1>Header</h1>
+        </div>
+        <hr />
+        {% block main %}
+        {% endblock %}
+        <hr />
+        <div>
+            <h1>Footer</h1>
+        </div>
+    </body>
+</html>
