@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
-    ('^$', 'blog.views.BlogIndex'),
-    ('^db/$', 'blog.views.test'),
+    ('^$', 'bragi.blog.views.BlogIndex'),
+    ('^db/$', 'bragi.blog.views.test'),
 )
