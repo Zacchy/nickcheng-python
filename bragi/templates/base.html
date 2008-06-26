@@ -1,23 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="zh-CN" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <!--  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+<html lang="zh-CN" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+    <head profile="http://gmpg.org/xfn/11">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--
+        <link href="http://nickcheng.com/feed/" title="RSS 2.0" type="application/rss+xml" rel="alternate"/>
+        <link href="http://nickcheng.com/feed/rss/" title="RSS .92" type="text/xml" rel="alternate"/>
+        <link href="http://nickcheng.com/feed/atom/" title="Atom 1.0" type="application/atom+xml" rel="alternate"/>
+        <link href="http://nickcheng.com/xmlrpc.php" rel="pingback"/>
+        <link href="http://nickcheng.com/xmlrpc.php?rsd" title="RSD" type="application/rsd+xml" rel="EditURI"/>
+        <link href="http://nickcheng.com/wp-includes/wlwmanifest.xml" type="application/wlwmanifest+xml" rel="wlwmanifest"/>
+        -->
         <meta name="Keywords" content="blog,python,django" />
         <meta name="Description" content="Blog system powered by Python & Django" />
-        <!--  <link rel="stylesheet" type="text/css" href="stdtheme.css" /> -->
+        <!--  
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+        <link rel="stylesheet" type="text/css" href="stdtheme.css" /> 
+        -->
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
         <div>
-            <h1>Header</h1>
+            <h1>Nickcheng.LOG</h1>
         </div>
         <hr />
         {% block main %}
         {% endblock %}
         <hr />
         <div>
-            <h1>Footer</h1>
+            Nickcheng 保留全部权利
         </div>
     </body>
 </html>
