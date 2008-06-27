@@ -6,13 +6,29 @@
 
 import dbaccess
 import g
+import urlhelper
 
-def getArticles(page):
+def GetArticles(page):
     '''
     获取指定页的文章
     '''
-    articleCount = g.INDEXPAGE_ARTICLECOUNT
-    articleIDs = dbaccess.getArticleIDs(page, articleCount)
-    articles = dbaccess.getArticlesByID(articleIDs)
+    articleCount = g.Get().INDEXPAGE_ARTICLECOUNT
+    articleIDs = dbaccess.GetArticleIDs(page, articleCount)
+    articles = dbaccess.GetArticlesByID(articleIDs)
     return articles
 
+def GetPager(pageNo):
+    '''
+    获取每页下方的"前一页","后一页"
+    '''
+    pagerLinks = []
+    if pageNo > g.Get().PageCount:
+        return None
+    elif pageNo == 1:
+        pagerLinks.append(['<<老文章', urlhelper.IndexURL(pageNo + 1)])
+    elif pageNo == g.Get().PageCount:
+        pagerLinks.append(['新文章>>', urlhelper.IndexURL(pageNo - 1)])
+    else:
+        pagerLinks.append(['<<老文章', urlhelper.IndexURL(pageNo + 1)])
+        pagerLinks.append(['新文章>>', urlhelper.IndexURL(pageNo - 1)])
+    return pagerLinks

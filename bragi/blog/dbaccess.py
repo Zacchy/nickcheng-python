@@ -4,7 +4,7 @@
 from django.db import connection
 import sqlhelper
 
-def getArticleIDs(page, count):
+def GetArticleIDs(page, count):
     cursor = connection.cursor()
     sql = sqlhelper.GetArticleIDs(page, count)
     cursor.execute(sql)
@@ -12,7 +12,7 @@ def getArticleIDs(page, count):
     connection.close()
     return ids
 
-def getArticlesByID(idList):
+def GetArticlesByID(idList):
     cursor = connection.cursor()
     articles = []
     for id in idList:
@@ -22,6 +22,14 @@ def getArticlesByID(idList):
             articles.append(article)
     connection.close()
     return articles
+
+def GetArticleCount():
+    cursor = connection.cursor()
+    sql = sqlhelper.GetArticleCount()
+    cursor.execute(sql)
+    count = [row[0] for row in cursor.fetchall()][0]
+    connection.close()
+    return count
 
 class Article:
     def __init__(self, pList):

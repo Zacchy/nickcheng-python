@@ -19,3 +19,7 @@ def GetArticleByID(id):
     sql = 'select post_author, post_date, post_date_gmt, post_content, post_title, post_category, post_summary, post_status, comment_status, post_password, post_name, post_modified, post_modified_gmt, ping_status, post_type, comment_count from blog_posts where ID = %s'
     result = sql % (id)
     return result
+
+def GetArticleCount():
+    sql = 'select count(*) from blog_posts'
+    return sql
