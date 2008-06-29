@@ -3,10 +3,16 @@
 {% block title %}这是首页哦{% endblock %}
 
 {% block main %}
+    <div>
+        {% for item in pagerLinks %}
+            <a href="{{ item.1 }}">{{ item.0 }}</a>
+        {% endfor %}
+    </div>
     <ul>
         {% for item in articles %}
             <li>
-                {{ item.Title }} ({{ item.CommentCount }}) - {{ item.PostDate }}<br />
+                <h3>{{ item.Title }} - ({{ item.CommentCount }})</h3> 
+                <h4>{{ item.PostDate }}</h4>
                 {{ item.Content }}
             </li>
         {% endfor %}
