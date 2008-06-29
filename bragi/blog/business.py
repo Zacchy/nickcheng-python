@@ -7,6 +7,7 @@
 import dbaccess
 import g
 import urlhelper
+import articlehelper
 
 def GetArticles(page):
     '''
@@ -15,7 +16,7 @@ def GetArticles(page):
     articleCount = g.Get().INDEXPAGE_ARTICLECOUNT
     articleIDs = dbaccess.GetArticleIDs(page, articleCount)
     articles = dbaccess.GetArticlesByID(articleIDs)
-    return articles
+    return articlehelper.ProcessContent(articles)
 
 def GetPager(pageNo):
     '''
