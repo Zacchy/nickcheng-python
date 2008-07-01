@@ -33,3 +33,6 @@ def GetPager(pageNo):
         pagerLinks.append(['<<老文章', urlhelper.IndexURL(pageNo + 1)])
         pagerLinks.append(['新文章>>', urlhelper.IndexURL(pageNo - 1)])
     return pagerLinks
+
+def save_article(title, slug, content):
+    dbaccess.save_article(title, slug, content)

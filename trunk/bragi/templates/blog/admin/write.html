@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}写文章{% endblock %}
+
+{% block main %}
+<form method="post" action=".">
+    <label>title:</label><input type="text" name="title" /><br />
+    <label>slug:</label><input type="text" name="slug" /><br />
+    <label>content:</label><textarea name="content" rows="10" cols="50"></textarea><br />
+    <input type="submit" name="publish" value="Publish" />
+</form>
+{% if inputError %}
+<div>
+    <h4>input error</h4>
+</div>
+{% endif %}
+
+{% endblock %}

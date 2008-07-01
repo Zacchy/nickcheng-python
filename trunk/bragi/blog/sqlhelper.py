@@ -23,3 +23,8 @@ def GetArticleByID(id):
 def GetArticleCount():
     sql = 'select count(*) from blog_posts'
     return sql
+
+def save_article(article):
+    sql = "insert into blog_posts (post_author, post_date, post_date_gmt, post_content, post_title, post_category, post_summary, post_status, comment_status, post_password, post_name, post_modified, post_modified_gmt, ping_status, post_type, comment_count) values (%s, '%s', '%s', '%s', '%s', %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s)"
+    result = sql % article.generateParam()
+    return result

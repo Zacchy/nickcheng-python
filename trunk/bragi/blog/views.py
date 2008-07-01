@@ -40,6 +40,7 @@ def Write(request):
         response = HttpResponseRedirect('/blog/admin/login/')
     else:
         inputError = False
+        response = render_to_response('blog/admin/write.html', locals())
         if request.method == 'POST':
             title = request.POST['title']
             slug = request.POST['slug']
@@ -48,5 +49,5 @@ def Write(request):
                 inputError = True
             else:
                 business.save_article(title, slug, content)
-        response = render_to_response('blog/admin/write.html', locals())
+                response = HttpResponseRedirect('/blog/')
     return response
