@@ -15,6 +15,14 @@ def GetArticleIDs(page, count):
     connection.close()
     return ids
 
+def GetArticleID(year, month, day, slug):
+    cursor = connection.cursor()
+    sql = sqlhelper.GetArticleID(year, month, day, slug)
+    cursor.execute(sql)
+    id = [row[0] for row in cursor.fetchall()]
+    connection.close()
+    return id
+
 def GetArticlesByID(idList):
     cursor = connection.cursor()
     articles = []
@@ -62,6 +70,8 @@ class Article:
         self.PingStatus = ''
         self.PostType = ''
         self.CommentCount = 0
+        #
+        self.URL = ''
         
         if pList:
             self.AutherID = pList[0]

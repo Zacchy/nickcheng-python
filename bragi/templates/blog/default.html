@@ -11,7 +11,7 @@
     <ul>
         {% for item in articles %}
             <li>
-                <h3>{{ item.Title }} - ({{ item.CommentCount }})</h3> 
+                <h3><a href="{{ item.URL }}">{{ item.Title }}</a> - ({{ item.CommentCount }})</h3> 
                 <h4>{{ item.PostDate }}</h4>
                 {{ item.Content }}
             </li>

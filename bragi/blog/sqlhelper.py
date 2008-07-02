@@ -7,6 +7,12 @@ def GetArticleIDs(page, count):
     result = sql % (offset, count)
     return result
 
+def GetArticleID(year, month, day, slug):
+    date = '-'.join((year, month, day))
+    sql = "select ID from blog_posts where post_date >= '%s' and post_name = '%s'"
+    result = sql % (date, slug)
+    return result
+
 def GetArticlesByID(idList):
     sList = str(tuple(idList)).replace('L','');
     if len(sList) == 2:
