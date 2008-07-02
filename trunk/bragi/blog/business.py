@@ -16,7 +16,15 @@ def GetArticles(page):
     articleCount = g.Get().INDEXPAGE_ARTICLECOUNT
     articleIDs = dbaccess.GetArticleIDs(page, articleCount)
     articles = dbaccess.GetArticlesByID(articleIDs)
-    return articlehelper.ProcessContent(articles)
+    return articlehelper.Process(articles)
+
+def GetArticle(year, month, day, slug):
+    '''
+    获取指定的文章
+    '''
+    articleID = dbaccess.GetArticleID(year, month, day, slug)
+    article = dbaccess.GetArticlesByID(articleID)[0]
+    return articlehelper.Process([article])[0]
 
 def GetPager(pageNo):
     '''
@@ -35,4 +43,6 @@ def GetPager(pageNo):
     return pagerLinks
 
 def save_article(title, slug, content):
+    if ' ' in slug:
+        slug = slug.replace(' ', '-')
     dbaccess.save_article(title, slug, content)

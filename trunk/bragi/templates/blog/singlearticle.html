@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.Title }} | Nickcheng.LOG{% endblock %}
+
+{% block main %}
+    <div>
+        <h3>{{ article.Title }}</h3>
+        <h4>{{ article.PostDate }}</h4>
+    </div>
+    <div>
+        {{ article.Content }}
+    </div>
+{% endblock %}
