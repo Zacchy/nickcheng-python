@@ -2,8 +2,8 @@
 <html lang="zh-CN" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
     <head profile="http://gmpg.org/xfn/11">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="http://nickcheng.com/feed/" title="Nickcheng.LOG RSS Feed" type="application/rss+xml" rel="alternate"/>
         <!--
-        <link href="http://nickcheng.com/feed/" title="RSS 2.0" type="application/rss+xml" rel="alternate"/>
         <link href="http://nickcheng.com/feed/rss/" title="RSS .92" type="text/xml" rel="alternate"/>
         <link href="http://nickcheng.com/feed/atom/" title="Atom 1.0" type="application/atom+xml" rel="alternate"/>
         <link href="http://nickcheng.com/xmlrpc.php" rel="pingback"/>
@@ -20,17 +20,16 @@
     </head>
     <body>
         <div>
-            <h1><a href="{{ homeURL }}">Nickcheng.LOG</a></h1>
-            {% if not username %}
-                <h4>
-                    <a href="/blog/admin/">Login</a>
-                </h4>
-            {% endif %}
-            {% if username %}
-                <h4>
-                    {{ username }} - <a href="/blog/admin/write/">Write</a> - <a href="/blog/admin/logout/">Logout</a>
-                </h4>
-            {% endif %}
+            <h1><a href="{{ headerInfo.homeURL }}">Nickcheng.LOG</a></h1>
+            <h4>
+                {% if not username %}
+                    <a href="{{ headerInfo.homeURL }}admin/">Login</a>
+                {% endif %}
+                {% if username %}
+                    {{ username }} - <a href="{{ headerInfo.homeURL }}admin/write/">Write</a> - <a href="{{ headerInfo.homeURL }}admin/logout/">Logout</a>
+                {% endif %}
+                - <a href="{{ headerInfo.homeFeed }}">订阅</a>
+            </h4>
         </div>
         <hr />
         {% block main %}
