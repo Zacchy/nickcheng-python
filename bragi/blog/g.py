@@ -18,8 +18,12 @@ def Get():
 class Settings():
     def __init__(self):
         # const
+        self.SITE_NAME = 'Nickcheng.LOG'
+        self.SITE_DESCRIPTION = '这是一个测试用的东西'
         self.SITE_DOMAINPREFIX = 'localhost:8000/blog'
         self.INDEXPAGE_ARTICLECOUNT = 7
+        self.INDEXPAGE_ARTICLECOUNT_RSS = 20
+        
         # varible
         self.ArticleCount = 0
         self.PageCount = 0

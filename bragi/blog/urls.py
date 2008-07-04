@@ -11,3 +11,7 @@ urlpatterns = patterns('bragi.blog.views',
     ('^admin/logout/$', 'Logout'),
     ('^admin/write/$', 'Write'),
 )
+
+urlpatterns += patterns('bragi.blog.feeds',
+    ('^feed/$', 'BlogIndex'),
+)
