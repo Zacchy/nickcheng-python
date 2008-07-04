@@ -80,3 +80,10 @@ def Articles2RSS(articleList):
         )
         print at.PostDate
     return f
+
+def GetHeaderInfo():
+    info = {}
+    info['homeURL'] = 'http://' + g.Get().SITE_DOMAINPREFIX + '/'
+    info['homeFeed'] = 'http://' + g.Get().SITE_DOMAINPREFIX + '/feed/'
+    
+    return info
