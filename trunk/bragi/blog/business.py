@@ -9,12 +9,13 @@ import g
 import urlhelper
 import articlehelper
 
-def GetArticles(page):
+def GetArticles(page, pageSize = None):
     '''
     获取指定页的文章
     '''
-    articleCount = g.Get().INDEXPAGE_ARTICLECOUNT
-    articleIDs = dbaccess.GetArticleIDs(page, articleCount)
+    if not pageSize:
+        pageSize = g.Get().INDEXPAGE_ARTICLECOUNT
+    articleIDs = dbaccess.GetArticleIDs(page, pageSize)
     articles = dbaccess.GetArticlesByID(articleIDs)
     return articlehelper.Process(articles)
 
@@ -46,3 +47,36 @@ def save_article(title, slug, content):
     if ' ' in slug:
         slug = slug.replace(' ', '-')
     dbaccess.save_article(title, slug, content)
+    
+def Articles2RSS(articleList):
+    from django.utils import feedgenerator
+    f = feedgenerator.Atom1Feed(
+        title = g.Get().SITE_NAME,
+        link = 'http://' + g.Get().SITE_DOMAINPREFIX,
+        description = g.Get().SITE_DESCRIPTION,
+        language = 'zh-cn',
+        author_email = '',
+        author_name = '',
+        author_link = '',
+        subtitle = '',
+        categories = '',
+        feed_url = '',
+        feed_copyright = ''
+    )
+    for at in articleList:
+        f.add_item(
+            title = at.Title,
+            link = at.URL,
+            description = at.Content,
+            author_email = None,
+            author_name = None,
+            author_link = None,
+            pubdate = at.PostDate,
+            comments = at.URL + '#comments',
+            unique_id = None,
+            enclosure = None,
+            categories = (),
+            item_copyright = None
+        )
+        print at.PostDate
+    return f
