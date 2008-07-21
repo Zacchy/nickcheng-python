@@ -1,0 +1,20 @@
+* { border: medium none; margin: 0pt; padding: 0pt; }
+body { -x-system-font: none; background: #FFFFFF none repeat scroll 0% 0%; color: #555753; font-family: georgia,times,serif; font-size: 1em; font-size-adjust: none; font-stretch: normal; font-style: normal; font-variant: normal; font-weight: normal; line-height: 1.5; }
+h1, h2, h3, h4, h5, h6 { color: #111111; font-family: 'microsoft yahei','microsoft jhenghei',simhei,helvetica,arial,sans-serif; font-weight: normal; text-shadow: 0pt 0pt 2px #999999; }
+
+#page { margin: 1em; }
+
+#header { text-align: center; }
+#logo { font-size: 2em; }
+#logo a:link { text-decoration: none; }
+#logo a:visited { text-decoration: none; }
+#rss { font-size: 0.8em; }
+.dotSplit { border: dotted 1px blue; }
+
+#pagerUp { padding-bottom: 1em; }
+#articleList { padding: 0 1em; list-style-type: none; }
+.article { border-bottom: 1px solid black; padding: 1em 0pt 0.5em; }
+h4.articleDate { padding-left: 1em; color: gray; font-size: small; }
+#pagerDown { padding-top: 1em; }
+
+#footer { text-align: center; }

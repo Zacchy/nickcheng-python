@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#coding=utf-8
+
 # Django settings for bragi project.
 import os
 
@@ -82,3 +85,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'bragi.blog',
 )
+
+# 静态文件目录
+STATIC_PATH = './media/'
+# 是否把blog放在根节点下
+BLOGHOME = False

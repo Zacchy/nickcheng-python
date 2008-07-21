@@ -4,10 +4,12 @@
 
 {% block main %}
     <div>
-        <h3>{{ article.Title }}</h3>
-        <h4>{{ article.PostDate }}</h4>
-    </div>
-    <div>
-        {{ article.Content }}
+        <div>
+            <h3>{{ article.Title }}</h3>
+            <h4 class="articleDate">{{ article.PostDate }}</h4>
+        </div>
+        <div>
+            {{ article.Content }}
+        </div>
     </div>
 {% endblock %}
