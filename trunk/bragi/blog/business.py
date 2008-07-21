@@ -46,6 +46,7 @@ def GetPager(pageNo):
 def save_article(title, slug, content):
     if ' ' in slug:
         slug = slug.replace(' ', '-')
+    content = content.replace('%', '%%') # 内容中的"%"会导致字符串进行格式化处理, 所以要先过滤一下
     dbaccess.save_article(title, slug, content)
     
 def Articles2RSS(articleList):
