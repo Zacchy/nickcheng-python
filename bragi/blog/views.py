@@ -19,6 +19,7 @@ def BlogIndex(request, pageNo = 1):
 def SingleArticle(request, year, month, day, slug):
     headerInfo = business.GetHeaderInfo()
     article = business.GetArticle(year, month, day, slug)
+    comments = business.GetComments(article.ID)
     username = request.COOKIES.get('user', '')
     return render_to_response('blog/singlearticle.html', locals())
 

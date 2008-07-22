@@ -3,13 +3,38 @@
 {% block title %}{{ article.Title }} | Nickcheng.LOG{% endblock %}
 
 {% block main %}
-    <div>
-        <div>
+    <div id="single">
+        <div class="postmetadata">
             <h3>{{ article.Title }}</h3>
             <h4 class="articleDate">{{ article.PostDate }}</h4>
         </div>
-        <div>
+        <div id="postentry">
             {{ article.Content }}
+        </div>
+        <div id="comments">
+            {% if article.CommentCount %}
+                <h4>{{ article.CommentCount }} 条评论</h4>
+                <ul id="commentList">
+                    {% for item in comments %}
+                        <li class="comment" id="comment-{{ item.ID }}">
+                            <cite>
+                                {% if item.AuthorURL %}
+                                    <a href="{{ item.AuthorURL }}">{{ item.Author }}</a>
+                                {% else %}
+                                    {{ item.Author }}
+                                {% endif %}
+                            </cite> 
+                            说道:
+                            <div>
+                                {{ item.Content }}
+                            </div>
+                            <h4 class="articleDate">彼时: <a href="{{ article.URL }}#comments-{{ item.ID }}">{{ item.PostDate }}</a></h4>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h4>暂无评论</h4>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

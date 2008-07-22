@@ -8,6 +8,7 @@ import dbaccess
 import g
 import urlhelper
 import articlehelper
+import commenthelper
 
 def GetArticles(page, pageSize = None):
     '''
@@ -26,6 +27,14 @@ def GetArticle(year, month, day, slug):
     articleID = dbaccess.GetArticleID(year, month, day, slug)
     article = dbaccess.GetArticlesByID(articleID)[0]
     return articlehelper.Process([article])[0]
+
+def GetComments(id):
+    '''
+    获取指定文章下的评论
+    '''
+    commentsID = dbaccess.GetCommentIDs(id)
+    comments = dbaccess.GetCommentsByID(commentsID)
+    return commenthelper.Process(comments)
 
 def GetPager(pageNo):
     '''
@@ -79,7 +88,6 @@ def Articles2RSS(articleList):
             categories = (),
             item_copyright = None
         )
-        print at.PostDate
     return f
 
 def GetHeaderInfo():

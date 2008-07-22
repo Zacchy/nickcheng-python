@@ -18,3 +18,9 @@ h4.articleDate { padding-left: 1em; color: gray; font-size: small; }
 #pagerDown { padding-top: 1em; }
 
 #footer { text-align: center; }
+
+#single { padding: 0 1em; }
+.postmetadata { padding-bottom: 1em; }
+#postentry { padding-bottom: 1em; }
+#comments { padding: 0 0 2em 2em; }
+#commentList { padding-left: 1em; }
