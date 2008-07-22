@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}这是首页哦{% endblock %}
+{% block title %}Nickcheng.LOG{% endblock %}
 
 {% block main %}
     <div id="pagerUp">
@@ -11,8 +11,10 @@
     <ul id="articleList">
         {% for item in articles %}
             <li class="article">
-                <h3><a href="{{ item.URL }}">{{ item.Title }}</a></h3> 
-                <h4 class="articleDate">发表于{{ item.PostDate }} - <a href="#">{{ item.CommentCount }}条评论</a></h4>
+                <div class="postmetadata">
+                    <h3><a href="{{ item.URL }}">{{ item.Title }}</a></h3> 
+                    <h4 class="articleDate">发表于{{ item.PostDate }} - <a href="{{ item.URL }}#comments">{{ item.CommentCount }}条评论</a></h4>
+                </div>
                 <div>
                     {{ item.Content }}
                 </div>
