@@ -5,12 +5,16 @@
             . 记得给文章的记录中的CommentCount+1
     v. RSS输出
         . 单篇文章的RSS输出(留言)
-    . 统计代码的加入方式
-    . 网站配置保存在DB
-    . 方便的部署
+    . 文章样式(CSS)调整. 这篇太丑了: http://nickcheng.com/2008/08/07/consistency-in-website-designing/
+    . 完善网站配置系统
+        . 方便的部署
     . theme和plugin机制
+        . 统计代码的加入方式, 考虑和插件系统一起
+        . 將文章同步到其他Blog系統(通過API)
+        . 适合手持设备查看
 
 . Done
+    . 网站配置保存在DB
     . 写文章的界面
     . 处理文章中的\r\n
     . 学习通过urls.py怎么传递参数到view中.

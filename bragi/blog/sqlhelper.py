@@ -45,3 +45,6 @@ def GetCommentByID(id):
     result = sql % (id)
     return result
     
+def GetOptions():
+    sql = 'SELECT option_name, option_value FROM blog_options'
+    return sql
