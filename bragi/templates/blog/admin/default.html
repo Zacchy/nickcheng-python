@@ -3,11 +3,13 @@
 {% block title %}登录{% endblock %}
 
 {% block main %}
-<form method="post" action=".">
-    <label>username:</label><input type="text" name="username" /><br />
-    <label>password:</label><input type="password" name="password" /><br />
-    <input type="submit" name="submit" value="Login" />
-</form>
+<div id="loginForm">
+    <form method="post" action=".">
+        <label>username:</label><input type="text" id="username" name="username" /><br />
+        <label>password:</label><input type="password" id="password" name="password" /><br />
+        <input type="submit" name="submit" value="Login" />
+    </form>
+</div>
 {% ifequal loggedin 1 %}
 <div>
     <h4>user info error</h4>
