@@ -71,6 +71,16 @@ def GetCommentsByID(idList):
     connection.close()
     return comments
     
+def GetOptions():
+    cursor = connection.cursor()
+    result = {}
+    sql = sqlhelper.GetOptions()
+    cursor.execute(sql)
+    options = cursor.fetchall()
+    connection.close()
+    for option in options:
+        result[option[0]] = option[1]
+    return result
 
 class Article:
     def __init__(self, title='', slug='', content='', pList=[]):

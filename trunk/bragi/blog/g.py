@@ -2,10 +2,6 @@
 #coding=utf-8
 # 存放全局内容的地方
 
-SITE_DOMAINPREFIX = 'localhost:8000'
-
-INDEXPAGE_ARTICLECOUNT = 7 # 首页的文章数量
-
 import dbaccess
 _settings = None
 
@@ -32,6 +28,15 @@ class Settings():
         self.Refresh()
         
     def Refresh(self):
+        # process const... from db
+        options = dbaccess.GetOptions()
+        self.SITE_NAME = options['SITE_NAME']
+        self.SITE_DESCRIPTION = options['SITE_DESCRIPTION']
+        self.SITE_DOMAINPREFIX = options['SITE_DOMAINPREFIX']
+        self.INDEXPAGE_ARTICLECOUNT = int(options['INDEXPAGE_ARTICLECOUNT'])
+        self.INDEXPAGE_ARTICLECOUNT_RSS = int(options['INDEXPAGE_ARTICLECOUNT_RSS'])
+        
+        # process varibles
         self.ArticleCount = dbaccess.GetArticleCount()
         self.PageCount = self.ArticleCount / self.INDEXPAGE_ARTICLECOUNT + 1
         
