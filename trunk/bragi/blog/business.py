@@ -56,8 +56,18 @@ def save_article(title, slug, content):
     if ' ' in slug:
         slug = slug.replace(' ', '-')
     title = title.replace('%', '%%') # 标题中的"%"会导致字符串进行格式化处理, 所以要先过滤一下
+    slug = slug.replace('%', '%%')
     content = content.replace('%', '%%') # 内容中的"%"会导致字符串进行格式化处理, 所以要先过滤一下
     dbaccess.save_article(title, slug, content)
+    
+def save_comment(articleID, author, email, url, comment, ip, agent):
+    author = author.replace('%', '%%')
+    email = email.replace('%', '%%')
+    url = url.replace('%', '%%')
+    comment = comment.replace('%', '%%')
+    ip = ip.replace('%', '%%')
+    agent = agent.replace('%', '%%')
+    dbaccess.save_comment(articleID, author, email, url, comment, ip, agent)
     
 def Articles2RSS(articleList):
     from django.utils import feedgenerator

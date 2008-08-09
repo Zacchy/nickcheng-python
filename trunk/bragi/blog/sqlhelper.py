@@ -35,6 +35,16 @@ def save_article(article):
     result = sql % article.generateParam()
     return result
 
+def save_comment(comment):
+    sql = "insert into blog_comments (comment_post_ID, comment_author, comment_author_email, comment_author_url, comment_author_IP, comment_date, comment_date_gmt, comment_content, comment_approved, comment_agent, comment_type, user_id) values (%s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s)"
+    result = sql % comment.generateParam()
+    return result
+
+def increase_commentcount(articleID):
+    sql = "update blog_posts set comment_count = comment_count + 1 where ID = %s"
+    result = sql % (articleID)
+    return result
+
 def GetCommentIDs(id):
     sql = 'select comment_ID from blog_comments where comment_post_ID = %s order by comment_date_gmt desc'
     result = sql % (id)

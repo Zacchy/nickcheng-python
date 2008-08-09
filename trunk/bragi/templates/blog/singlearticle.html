@@ -32,9 +32,33 @@
                         </li>
                     {% endfor %}
                 </ul>
-            {% else %}
-                <h4>暂无评论</h4>
             {% endif %}
+            {% if inputError %}
+                <h4 class="errorInfo">输入有误</h4>
+            {% endif %}
+            <h4>请发表评论</h4>
+            <div id="commentForm">
+                <form method="post" action=".">
+                    <p>
+                        <input type="text" name="author" id="author" tabindex="1" />
+                        <label><small>尊姓大名(不能不写哦)</small></label>
+                    </p>
+                    <p>
+                        <input type="text" name="email" id="email" tabindex="2" />
+                        <label><small>您的电子邮件(绝不会公开, 但不能不写)</small></label>
+                    </p>
+                    <p>
+                        <input type="text" name="url" id="url" tabindex="3" />
+                        <label><small>你的Blog或网站地址</small></label>
+                    </p>
+                    <p>
+                        <textarea name="comment" id="comment" tabindex="4" cols="100%" rows="7"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" name="submit" id="submit" tabindex="5" value="发表评论" />
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

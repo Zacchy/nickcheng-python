@@ -52,6 +52,18 @@ def save_article(title, slug, content):
     connection.close()
     return article
 
+@transaction.commit_manually
+def save_comment(articleID, author, email, url, comment, ip, agent):
+    cursor = connection.cursor()
+    c = Comment(postid = articleID, author = author, authoremail = email, authorurl = url, content = comment, authorip = ip, agent = agent)
+    sql = sqlhelper.save_comment(c)
+    cursor.execute(sql)
+    sql = sqlhelper.increase_commentcount(articleID)
+    cursor.execute(sql)
+    transaction.commit()
+    connection.close()
+    return c
+
 def GetCommentIDs(id):
     cursor = connection.cursor()
     sql = sqlhelper.GetCommentIDs(id)
@@ -171,5 +183,5 @@ class Comment:
             self.UserID = userid
             
     def generateParam(self):
-        return (self.PostID, self.Author, self.AuthorEmail, self.AuthorURL, self.PostDate, self.PostDateGMT, self.Content, self.Approved, self.Agent, self.Type, self.UserID)
+        return (self.PostID, self.Author, self.AuthorEmail, self.AuthorURL, self.AuthorIP, self.PostDate, self.PostDateGMT, self.Content, self.Approved, self.Agent, self.Type, self.UserID)
             

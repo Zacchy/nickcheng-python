@@ -21,7 +21,18 @@ def SingleArticle(request, year, month, day, slug):
     article = business.GetArticle(year, month, day, slug)
     comments = business.GetComments(article.ID)
     username = request.COOKIES.get('user', '')
-    return render_to_response('blog/singlearticle.html', locals())
+    if request.method == 'POST':
+        author = request.POST['author']
+        email = request.POST['email']
+        url = request.POST['url']
+        comment = request.POST['comment']
+        if not author or not email or not comment:
+            inputError = True
+        else:
+            business.save_comment(article.ID, author, email, url, comment, request.META['REMOTE_ADDR'], request.META['HTTP_USER_AGENT'])
+            return HttpResponseRedirect(article.URL + '#comments')
+    response = render_to_response('blog/singlearticle.html', locals())
+    return response
 
 # Admin 
 def AdminIndex(request):
